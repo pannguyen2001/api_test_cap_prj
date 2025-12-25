@@ -1,0 +1,14 @@
+{
+    "admin": {
+        "email": "<admin_email>@gmail.com",
+        "password": "*********"
+    },
+    "student": {
+        "email": "<student_email>@gmail.com",
+        "password": "*********"
+    },
+    "teacher": {
+        "email": "<teacher_email>@gmail.com",
+        "password": "*********"
+    }
+}
