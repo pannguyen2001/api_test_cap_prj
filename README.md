@@ -75,10 +75,7 @@ python main.py
 - README.md: project readme.
 - requirements.txt: contains packages need install.
 
-## VI. Reference
-- Code using ChatGPT and Gemini to help review, hint improvement and fix bug.
-
-## VII. All projects in Capstone Project ecosystem
+## VI. All projects in Capstone Project ecosystem
 - Capstone project (cloned, using for testting purpose):
     1. Github FE: https://github.com/pannguyen2001/datn-fe
     2. Github BE: https://github.com/pannguyen2001/datn-be
