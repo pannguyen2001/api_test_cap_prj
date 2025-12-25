@@ -83,7 +83,7 @@ python main.py
 - Generate data tool (auto generate correct data, to save to db, reduce time prepare data):
     1. Github: https://github.com/pannguyen2001/gen_data_tool
 - API testing:
-    1. Github: (upcoming)
+    1. Github: https://github.com/pannguyen2001/api_test_cap_prj/
 - UI testing using selenium:
     1. Github: (upcoming)
 - Data validation:
