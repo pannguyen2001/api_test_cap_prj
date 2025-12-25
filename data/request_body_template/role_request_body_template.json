@@ -1,0 +1,11 @@
+{
+    "predata": {
+        "role_01": {
+            "name": "API predata - role 01"
+        }
+    },
+    "need_clear": [
+        "API predata - role 01 - edited",
+        "API csv - role 01"
+    ]
+}

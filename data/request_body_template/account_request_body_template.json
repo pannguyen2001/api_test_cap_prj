@@ -1,0 +1,19 @@
+{
+    "predata": {
+        "account_01": {
+            "role_name": "{student_role_name}",
+            "full_name": "API predata - student account 01",
+            "date_of_birth": "{datetime(%Y-%m-%d,0)}",
+            "gender": "nam",
+            "address": "API predata - student account 01 - address - {random_string(5)}",
+            "email": "api_predata_admin_account_01@gmail.com",
+            "phone_number": "1234567890",
+            "password": "123456789",
+            "confirmPassword": "123456789"
+        }
+    },
+    "need_clear": [
+        "API predata - student account 01 - edited",
+        "API csv - student account 01"
+    ]
+}

@@ -1,0 +1,2 @@
+mo phong luong hoat dong:
+main => common: user, login => 

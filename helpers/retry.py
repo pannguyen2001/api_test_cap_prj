@@ -1,0 +1,25 @@
+import time
+from functools import wraps
+from .logger import logger
+
+def retry(
+    times: int = 3,
+    delay: int = 5,
+    exceptions=(Exception,)
+    ):
+    def decorator(function):
+        @wraps(function)
+        def wrapper(*args, **kwargs):
+            for attempt in range(1, times + 1):
+                try:
+                    return function(*args, **kwargs)
+                except exceptions as err:
+                    logger.warning(
+                        f"[retry > {function.__name__}] "
+                        f"Attempt {attempt}/{times} failed: {err}"
+                    )
+                    if attempt < times:
+                        time.sleep(delay)
+            raise
+        return wrapper
+    return decorator
