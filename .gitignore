@@ -3,4 +3,4 @@
 GEMINI.md
 __pycache__/
 .env
-configs/user_info.json
+secret.txt
