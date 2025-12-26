@@ -34,8 +34,6 @@ def replace_datetime_format(data: str = "") -> str:
         data = data.replace(f"{{datetime({matches[0]})}}", datetime_str)
     return data
 
-
-
 @logger.catch
 def replace_data_by_setup_values(data: str = "", setup_data: Dict = None) -> Dict:
     if not data:
@@ -48,7 +46,7 @@ def replace_data_by_setup_values(data: str = "", setup_data: Dict = None) -> Dic
 
     for key, value in setup_data.items():
         if not isinstance(value, str):
-            logger.warning(f"Value is not string. Convert to string by using json.dumps(). Key: '{key}' - value: '{value}'. ")
+            logger.warning(f"Value is not string. Convert to string type. Key: '{key}' - value: '{value}'. ")
             value = str(value)
 
         data = data.replace("{" + key + "}", value)

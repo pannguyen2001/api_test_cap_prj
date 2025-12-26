@@ -5,7 +5,6 @@ from requests import Response
 from typing import List, Dict, Optional
 from helpers import logger_wrapper, logger, validate_response
 
-
 class RoleProcessResponse:
     def __init__(self, client: Client = Client()) -> None:
         self.__client = client

@@ -38,7 +38,7 @@ report_file_path = os.path.join(REPORT_FOLDER, report_file_name)
 report_file_path = Path(report_file_path)
 report_file_path.parent.mkdir(exist_ok=True, parents=True)
 
-
+# ========== Enum class ===========
 class MODULETEST(Enum):
     ROLE = "role"
     ACCOUNT = "account"
@@ -46,7 +46,6 @@ class MODULETEST(Enum):
     TEACHER = "teacher"
     COURSE_CATEGORY = "course_category"
     COURSE = "course"
-
 
 class ROLE(Enum):
     ADMIN = "admin"

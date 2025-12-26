@@ -3,8 +3,7 @@ from apis import AccountAPI
 from common import Client
 from requests import Response
 from typing import List, Dict, Optional
-from helpers import logger_wrapper, logger, validate_response
-
+from helpers import logger_wrapper, logger, validate_response, time_execution_wrapper
 
 class AccountResponse:
     def __init__(self, client: Client = Client()) -> None:
@@ -12,6 +11,7 @@ class AccountResponse:
         self.__AccountAPI = AccountAPI(self.__client)
 
     @logger_wrapper
+    @time_execution_wrapper
     def get_all_accounts(self) -> Optional[List]:
         res: Response = self.__AccountAPI.get_all_accounts()
         res = validate_response(self.get_all_accounts.__name__, res)
@@ -23,6 +23,7 @@ class AccountResponse:
         return res
 
     @logger_wrapper
+    @time_execution_wrapper
     def get_account_by_id(self, account_id: str = "") -> None:
         res: Response = self.__AccountAPI.get_account_by_id(account_id)
         res = validate_response(self.get_account_by_id.__name__, res)
@@ -32,6 +33,7 @@ class AccountResponse:
         return res
 
     @logger_wrapper
+    @time_execution_wrapper
     def create_new_account_with_check(self, request_body: Dict = None) -> Optional[Dict]:
         current_account_list: List = self.get_all_accounts()
         if not current_account_list:
@@ -55,6 +57,7 @@ class AccountResponse:
         return create_account_res
 
     @logger_wrapper
+    @time_execution_wrapper
     def edit_account(self, account_id: str = "", request_body: Dict = None) -> Dict:
         res: Response = self.__AccountAPI.edit_account(account_id, request_body)
         res = validate_response(self.edit_account.__name__, res)
@@ -69,7 +72,6 @@ class AccountResponse:
         res: Response = self.__AccountAPI.delete_account(account_id)
         logger.info(f"Delete account response: {res.status_code}")
         return
-
 
     @logger_wrapper
     def clear_data(self, data: List = []) -> None:

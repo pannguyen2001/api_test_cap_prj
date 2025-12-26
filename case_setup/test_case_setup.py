@@ -22,7 +22,7 @@ def test_case_setup(
         logger.warning("No pre-data found.")
         return
 
-    df_neccessary_case["api"] = BASE_URL + df_neccessary_case["api"]
+    # df_neccessary_case["api"] = BASE_URL + df_neccessary_case["api"]
     df_neccessary_case["api"] = df_neccessary_case["api"].map(lambda x: replace_string_by_dict_value(x, pre_data) if pd.notna(x) else x)
 
     df_neccessary_case["request_body"] = df_neccessary_case["request_body"].map(lambda x: replace_data_by_setup_values(x, pre_data) if pd.notna(x) else None)

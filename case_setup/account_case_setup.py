@@ -41,7 +41,9 @@ def account_case_setup() -> Dict:
     # admin_account_info: Dict = admin.AccountResponse.get_account_by_id(pre_data["admin_account_id"])
 
     # create role
-    # Note that admin can not delete admin, so if create admin account, can not use this to delete, need go to db or use postman to maula delete
+    # Note that admin can not delete admin.
+    # Therefore, if create admin account, can not use this to delete,
+    # need go to db or use postman to manual delete.
     account_01_request_body: Dict = predata_request_body_template["account_01"]
     account_01_request_body = replace_data_by_setup_values(account_01_request_body, pre_data)
     account_01_info: Dict = admin.AccountResponse.create_new_account_with_check(account_01_request_body)

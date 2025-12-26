@@ -4,7 +4,7 @@ from typing import Dict, Literal
 from configs.constants import BASE_URL
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util import Retry
-from helpers import retry, validate_response, logger
+from helpers import retry, validate_response, logger, time_execution_wrapper
 
 ROLE_TYPE = Literal["admin", "student", "teacher"]
 
@@ -139,6 +139,7 @@ class Client:
             )
 
     @retry(3)
+    @time_execution_wrapper
     def login(self):
         logger.info(f"Login with role: {self.__role}, email: {self.__email} and password: {self.__password}.")
         request_body: Dict = {
@@ -149,12 +150,13 @@ class Client:
         res = validate_response(self.login.__name__, res)
         if not res:
             logger.warning("Login failed.")
+            return
         self.__header["Token"] = f"Bearer {res.get('accessToken', '')}"
         self.__info = res
         logger.success("Login successfully.")
 
+    @retry(3)
     def logout(self):
         logger.info(f"User: '{self.__email}', role: '{self.__role}' logout.")
         res: Response = self.post("/api/auth/logout")
         logger.info(f"Logout info: {res.status_code}, {res.text}.")
-        return res

@@ -21,7 +21,6 @@ def load_csv(file_path, *args, **kwargs):
 def load_excel(file_path, *args, **kwargs):
         return pd.read_excel(file_path, engine="calamine", *args, **kwargs).to_dict(orient="records")
 
-
 def load_data(file_path: str = "", data_type: FILE_TYPE = "csv", *args, **kwargs) -> Any:
     load_data_funct_mapping: Dict = {
         "json": load_json_file,

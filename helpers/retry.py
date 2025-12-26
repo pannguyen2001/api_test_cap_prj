@@ -8,6 +8,7 @@ def retry(
     exceptions=(Exception,)
     ):
     def decorator(function):
+        @logger.catch
         @wraps(function)
         def wrapper(*args, **kwargs):
             for attempt in range(1, times + 1):
@@ -15,11 +16,11 @@ def retry(
                     return function(*args, **kwargs)
                 except exceptions as err:
                     logger.warning(
-                        f"[retry > {function.__name__}] "
+                        f"[{function.__name__}] "
                         f"Attempt {attempt}/{times} failed: {err}"
                     )
                     if attempt < times:
                         time.sleep(delay)
-            raise
+            raise Exception(f"[{function.__name__}] Failed after {times} attempts.")
         return wrapper
     return decorator
