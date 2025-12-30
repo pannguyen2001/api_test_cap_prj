@@ -26,7 +26,7 @@ python -m venv .venv
 ```
 2. Activate venv
 ```
-source .venv/bin/activate
+source .venv/bin/activate or .\.venv\Scripts\Activate.ps1
 ```
 3. Check python version
 ```

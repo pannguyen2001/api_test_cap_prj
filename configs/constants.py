@@ -19,11 +19,12 @@ TEST_CASE_FILE_PATH = os.getenv("TEST_CASE_FILE_PATH")
 class DATETIMEFORMAT(Enum):
     DATETIME = "%Y-%m-%d %H:%M:%S"
     DATE = "%Y-%m-%d"
+    DATETIME_F2 = "%Y-%m-%d_%H-%M-%S"
 
 VN_TIME_ZONE = pytz.timezone("Asia/Ho_Chi_Minh")
 today = datetime.datetime.now().astimezone(VN_TIME_ZONE).strftime(DATETIMEFORMAT.DATE.value)
 datetime_today = datetime.datetime.now().astimezone(VN_TIME_ZONE).strftime(DATETIMEFORMAT.DATETIME.value)
-
+datetime_today_f2 = datetime.datetime.now().astimezone(VN_TIME_ZONE).strftime(DATETIMEFORMAT.DATETIME_F2.value)
 
 
 # ========== Create log file ===========
@@ -33,7 +34,7 @@ log_file_path = Path(log_file_path)
 log_file_path.parent.mkdir(exist_ok=True, parents=True)
 
 # ========== Create report file ===========
-report_file_name = f"{datetime_today}.xlsx"
+report_file_name = f"{datetime_today_f2}.xlsx"
 report_file_path = os.path.join(REPORT_FOLDER, report_file_name)
 report_file_path = Path(report_file_path)
 report_file_path.parent.mkdir(exist_ok=True, parents=True)
