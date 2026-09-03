@@ -3,6 +3,7 @@ from typing import List, Dict
 from helpers import logger, logger_wrapper, replace_data_by_setup_values
 from common.common_setup import admin, account_predata_info, ROLE
 
+
 @logger_wrapper
 def account_case_setup() -> Dict:
     predata_request_body_template: Dict = account_predata_info["predata"]
@@ -53,4 +54,3 @@ def account_case_setup() -> Dict:
 
     logger.info(json.dumps(pre_data, indent=4))
     return pre_data
-
